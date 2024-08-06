@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import { Todo } from "../interface/todo";
+import { Todo } from "../models/todo.model.";
 
 interface NewTodoProps {
     addTodo: (todo: Todo) => void
@@ -10,6 +10,7 @@ const NewTodo: React.FC<NewTodoProps> = ({ addTodo }) => {
         e.preventDefault();
         const enteredText = textInputRef.current!.value;
         addTodo({ id: `${Math.random()}`, text: enteredText });
+        textInputRef.current!.value = ''
     }
     return <form onSubmit={handleSubmit} >
         <div>
