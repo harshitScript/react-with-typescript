@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import { Todo } from "../models/todo.model.";
+import './NewTodo.css'
 
 interface NewTodoProps {
     addTodo: (todo: Todo) => void
@@ -13,7 +14,7 @@ const NewTodo: React.FC<NewTodoProps> = ({ addTodo }) => {
         textInputRef.current!.value = ''
     }
     return <form onSubmit={handleSubmit} >
-        <div>
+        <div className="form-control">
             <label htmlFor="todo">Todo Text:</label>
             <input ref={textInputRef} type='text' placeholder="enter todo text" />
         </div>
